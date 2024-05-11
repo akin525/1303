@@ -368,13 +368,8 @@ class PaymentController extends Controller
         }
     }
 
-    public function payWithPayStack(Request $request, $slug){
+    public function payWithPayStack(Request $request){
 
-        if(env('APP_MODE') == 'DEMO'){
-            $notification = trans('translate.This Is Demo Version. You Can Not Change Anything');
-            $notification=array('message'=>$notification,'alert-type'=>'error');
-            return redirect()->back()->with($notification);
-        }
 
         $paystack = PaystackAndMollie::first();
 

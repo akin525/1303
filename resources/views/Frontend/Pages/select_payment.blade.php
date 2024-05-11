@@ -786,33 +786,28 @@
         $currency = $paystack->paystack_currency_code;
         $currency = strtoupper($currency);
 
-        $ngn_amount = $order_total * $paystack->paystack_currency_rate;
-        $ngn_amount = $ngn_amount * 100;
+//        $ngn_amount = $order_total * $paystack->paystack_currency_rate;
+        $ngn_amount = $order_total * 100;
         $ngn_amount = round($ngn_amount);
     @endphp
     <script>
         "use strict"
         function payWithPaystack(){
-            var isDemo = "{{ env('APP_MODE') }}"
-            if(isDemo == 'DEMO'){
-                toastr.error('This Is Demo Version. You Can Not Change Anything');
-                return;
-            }
-
             var handler = PaystackPop.setup({
                 key: '{{ $public_key }}',
                 email: '{{ Auth::User()->email }}',
                 amount: '{{ $ngn_amount }}',
-                currency: "{{ $currency }}",
+                currency: "NGN",
                 callback: function(response){
                 let reference = response.reference;
                 let tnx_id = response.transaction;
                 let _token = "{{ csrf_token() }}";
                 $.ajax({
-                    type: "get",
+                    type: "GET",
                     data: {reference, tnx_id, _token},
-                    url: "{{ url('pay-with-paystack') }}",
+                    url: "{{ url('paystack-payment') }}",
                     success: function(response) {
+                        console.log(response);
                         if(response.status == 'success'){
                             toastr.success(response.message);
                             window.location.href = response.redirect_url;
@@ -822,8 +817,8 @@
                         }
                     },
                     error: function(response){
-                            toastr.error('Server Error');
-                            window.location.reload();
+                            toastr.error(response);
+                            // window.location.reload();
                     }
                 });
                 },
