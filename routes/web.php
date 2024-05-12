@@ -62,9 +62,9 @@ use App\Http\Controllers\WEB\Frontend\PaymentController;
 
 use App\Models\setting as Setting;
 
-Route::group(['middleware' => ['XSS']], function () {
+//Route::group(['middleware' => ['XSS']], function () {
 
-    Route::group(['middleware' => ['HtmlSpecialchars']], function () {
+//    Route::group(['middleware' => ['HtmlSpecialchars']], function () {
         // Frontend Pages Routes....
         Route::get('/lang/{lang_code}', [HomeController::class,'setLanguage'])->name('set.language');
         Route::get('/change/theme/{theme}', [CartController::class,'changeTheme'])->name('change.fontend.theme');
@@ -184,7 +184,12 @@ Route::group(['middleware' => ['XSS']], function () {
 
         Route::post('/bank-payment', [PaymentController::class, 'bankPayment'])->name('bank-payment');
 
-    });
+//    });
+
+
+
+
+
 
     Route::group(['middleware' =>'admin'], function () {
 
@@ -475,7 +480,7 @@ Route::group(['middleware' => ['XSS']], function () {
 
     });
 
-});
+//});
 
 
 Route::get('/migrate', function(){
