@@ -17,5 +17,10 @@ class VerifyCsrfToken extends Middleware
         '/fail',
         '/ipn',
         '/pay-via-ajax',
-    ];
+'/login',
+'/register',
+'/forgot/password',
+'/set/password',
+
+];
 }
