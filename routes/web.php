@@ -485,8 +485,7 @@ Route::group(['middleware' => ['XSS']], function () {
 
 
     Route::get('/uploads/custom-images/{filename}', function ($filename) {
-        $path = storage_path('app/public/uploads/custom-images/' . $filename);
-
+        $path = public_path($filename);
         if (!File::exists($path)) {
             abort(404);
         }
