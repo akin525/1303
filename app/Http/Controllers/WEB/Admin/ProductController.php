@@ -41,16 +41,20 @@ class ProductController extends Controller
             $extention = $request->tumb_image->getClientOriginalExtension();
             $tumb_image_name = Str::slug($request->name).date('-Y-m-d-h-i-s-').rand(999,9999).'.'.$extention;
             $tumb_image_name = 'uploads/custom-images/'.$tumb_image_name;
-            Image::make($request->tumb_image)
-                ->save(public_path().'/'.$tumb_image_name);
+            $image = Image::make($request->tumb_image);
+            Storage::put('/' . $tumb_image_name, $image->stream());
+//            Image::make($request->tumb_image)
+//                ->save(public_path().'/'.$tumb_image_name);
             $product->tumb_image = $tumb_image_name;
         }
         if($request->vedio_tumb_image){
             $extention = $request->vedio_tumb_image->getClientOriginalExtension();
             $vedio_tumb_image = Str::slug($request->name).date('-Y-m-d-h-i-s-').rand(999,9999).'.'.$extention;
             $vedio_tumb_image = 'uploads/custom-images/'.$vedio_tumb_image;
-            Image::make($request->vedio_tumb_image)
-                ->save(public_path().'/'.$vedio_tumb_image);
+            $image = Image::make($request->vedio_tumb_image);
+            Storage::put('/' . $vedio_tumb_image, $image->stream());
+//            Image::make($request->vedio_tumb_image)
+//                ->save(public_path().'/'.$vedio_tumb_image);
             $product->vedio_tumb_image = $vedio_tumb_image;
         }
 
@@ -73,7 +77,8 @@ class ProductController extends Controller
                 $extension = $image->getClientOriginalExtension();
                 $image_name = 'Gallery' . date('Y-m-d-h-i-s') . rand(999, 9999) . '.' . $extension;
                 $image_path = 'uploads/custom-images/' . $image_name;
-                $image->move(public_path('uploads/custom-images'), $image_name);
+                $image->storeAs('uploads/custom-images', $image_name);
+//                $image->move(public_path('uploads/custom-images'), $image_name);
 //                $image=Storage::put('uploads/custom-images', $image_name);
                 $gallery = new ProductGallery();
                 $gallery->product_id = $product->id;
@@ -139,22 +144,33 @@ class ProductController extends Controller
                 $extention = $request->tumb_image->getClientOriginalExtension();
                 $tumb_image_name = Str::slug($request->name).date('-Y-m-d-h-i-s-').rand(999,9999).'.'.$extention;
                 $tumb_image_name = 'uploads/custom-images/'.$tumb_image_name;
-                Image::make($request->tumb_image)
-                    ->save(public_path().'/'.$tumb_image_name);
-                if($old_tumb_image){
-                    if(File::exists(public_path().'/'.$old_tumb_image))unlink(public_path().'/'.$old_tumb_image);
+                $image = Image::make($request->tumb_image);
+                Storage::put('uploads/' . $tumb_image_name, $image->stream());
+                if ($old_tumb_image && Storage::exists('uploads/' . $old_tumb_image)) {
+                    Storage::delete('uploads/' . $old_tumb_image);
                 }
+//                Image::make($request->tumb_image)
+//                    ->save(public_path().'/'.$tumb_image_name);
+//                if($old_tumb_image){
+//                    if(File::exists(public_path().'/'.$old_tumb_image))unlink(public_path().'/'.$old_tumb_image);
+//                }
                 $product->tumb_image = $tumb_image_name;
             }
             if($request->vedio_tumb_image){
                 $extention = $request->vedio_tumb_image->getClientOriginalExtension();
                 $vedio_tumb_image = Str::slug($request->name).date('-Y-m-d-h-i-s-').rand(999,9999).'.'.$extention;
                 $vedio_tumb_image = 'uploads/custom-images/'.$vedio_tumb_image;
-                Image::make($request->vedio_tumb_image)
-                    ->save(public_path().'/'.$vedio_tumb_image);
-                    if($old_vedio_tumb_image){
-                        if(File::exists(public_path().'/'.$old_vedio_tumb_image))unlink(public_path().'/'.$old_vedio_tumb_image);
-                    }
+
+                $image = Image::make($request->vedio_tumb_image);
+                Storage::put('uploads/' . $vedio_tumb_image, $image->stream());
+                if ($old_vedio_tumb_image && Storage::exists('uploads/' . $old_vedio_tumb_image)) {
+                    Storage::delete('uploads/' . $old_vedio_tumb_image);
+                }
+//                Image::make($request->vedio_tumb_image)
+//                    ->save(public_path().'/'.$vedio_tumb_image);
+//                    if($old_vedio_tumb_image){
+//                        if(File::exists(public_path().'/'.$old_vedio_tumb_image))unlink(public_path().'/'.$old_vedio_tumb_image);
+//                    }
                 $product->vedio_tumb_image = $vedio_tumb_image;
             }
             $product->slug = $request->slug;

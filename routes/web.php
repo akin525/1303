@@ -500,7 +500,7 @@ Route::get('/migrate', function(){
 
 
 Route::get('/uploads/custom-images/{filename}', function ($filename) {
-    $path = public_path('uploads/custom-images/' . $filename);
+    $path = storage_path('uploads/custom-images/' . $filename);
 
     if (!File::exists($path)) {
         abort(404);
