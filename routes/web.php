@@ -65,6 +65,8 @@ use App\Models\setting as Setting;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+
 Route::group(['middleware' => ['XSS']], function () {
 
     Route::group(['middleware' => ['HtmlSpecialchars']], function () {
@@ -500,7 +502,7 @@ Route::get('/migrate', function(){
 
 
 Route::get('/uploads/custom-images/{filename}', function ($filename) {
-    $path = storage_path('uploads/custom-images/' . $filename);
+    $path = Storage::url('uploads/custom-images/' . $filename);
 
     if (!File::exists($path)) {
         abort(404);
