@@ -56,7 +56,7 @@
                         <div class="slider-for">
                             @foreach($galleries as $index => $gallery)
                                 <div class="slider-for-img">
-                                    <img src="{{asset($gallery['image'])}}" alt="img">
+                                    <img src="{{url($gallery['image'])}}" alt="img">
                                 </div>
                             @endforeach
 
@@ -66,7 +66,7 @@
                         <div class="slider-nav">
                             @foreach($galleries as $index => $glry)
                                 <div class="slider-nav-img">
-                                    <img src="{{asset($glry['image'])}}" alt="">
+                                    <img src="{{url($glry['image'])}}" alt="">
                                     <div class="overlay"></div>
                                 </div>
                             @endforeach
@@ -452,10 +452,10 @@
 
                     <div class="restaurant-taitel-btn">
                         <a href="{{ $app->play_store }}" class="paly-bg" > <span>
-                            
+
                             </span> {{ __('translate.Play Store') }}</a>
                         <a href="{{ $app->i_store }}" class=" restaurant-taitel-btn-two"> <span>
-                             
+
                             </span> {{ __('translate.App Store') }}</a>
                     </div>
                 </div>

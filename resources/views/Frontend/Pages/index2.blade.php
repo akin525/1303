@@ -137,7 +137,7 @@
                                 @endif
 
                                 <div class="featured-item-img">
-                                    <img src="{{asset($product2['tumb_image'])}}" class="w-100" alt="featured-thumb">
+                                    <img src="{{url($product2['tumb_image'])}}" class="w-100" alt="featured-thumb">
                                     <div class="featured-item-img-overlay">
                                         <div class="featured-item-img-over-text">
                                             <div class="left-text">

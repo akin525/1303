@@ -494,3 +494,30 @@ Route::get('/migrate', function(){
     $notification = array('messege' => $notification, 'alert-type' => 'success');
     return redirect()->route('index')->with($notification);
 });
+
+Route::get('/uploads/custom-images', function ($filename) {
+    $path = public_path($filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+})->name('cat');
+Route::get('/cover/{filename}', function ($filename) {
+    $path = storage_path('app/cover/' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+})->name('cover');

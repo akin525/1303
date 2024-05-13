@@ -10,6 +10,7 @@ use App\Models\ProductGallery;
 use App\Models\OptionalItem;
 use App\Models\Category;
 use App\Models\Language;
+use Illuminate\Support\Facades\Storage;
 use Validator;
 use Image;
 use Str;
@@ -73,6 +74,7 @@ class ProductController extends Controller
                 $image_name = 'Gallery' . date('Y-m-d-h-i-s') . rand(999, 9999) . '.' . $extension;
                 $image_path = 'uploads/custom-images/' . $image_name;
                 $image->move(public_path('uploads/custom-images'), $image_name);
+//                $image=Storage::put('uploads/custom-images', $image_name);
                 $gallery = new ProductGallery();
                 $gallery->product_id = $product->id;
                 $gallery->image = $image_path;

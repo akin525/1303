@@ -144,7 +144,7 @@
                         @foreach ($product as $product)
                             <div class="featured-item">
                                 <div class="featured-item-img">
-                                    <img src="{{asset($product['tumb_image'])}}" class="w-100" alt="featured-thumb">
+                                    <img src="{{url($product['tumb_image'])}}" class="w-100" alt="featured-thumb">
 
                                     <div class="featured-item-img-overlay">
                                         <div class="featured-item-img-over-text">
