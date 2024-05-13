@@ -62,6 +62,8 @@ use App\Http\Controllers\WEB\Frontend\PaymentController;
 
 use App\Models\setting as Setting;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 Route::group(['middleware' => ['XSS']], function () {
 
     Route::group(['middleware' => ['HtmlSpecialchars']], function () {
