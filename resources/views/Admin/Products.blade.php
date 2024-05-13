@@ -47,7 +47,7 @@
 
                                                         </div>
                                                         <div class="sherah-table__vendor-img">
-                                                            <img src="{{asset($product['thumbnail_image'])}}" alt="#">
+                                                            <img src="{{url($product['thumbnail_image'])}}" alt="#">
                                                         </div>
                                                         <h4 class="sherah-table__vendor--title"><a href="{{route('admin.edit.product',$product->id)}}">{{$product['title']}}</a></h4>
                                                     </div>
