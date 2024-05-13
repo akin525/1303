@@ -504,12 +504,12 @@ Route::get('/migrate', function(){
 Route::get('/uploads/custom-images/{filename}', function ($filename) {
     $path = storage_path('app/uploads/custom-images/' . $filename);
 
-    if (!Storage::exists('uploads/custom-images/' . $filename)) {
+    if (!Storage::exists('app/uploads/custom-images/' . $filename)) {
         abort(404);
     }
 
-    $file = Storage::get('uploads/custom-images/' . $filename);
-    $type = Storage::mimeType('uploads/custom-images/' . $filename);
+    $file = Storage::get('app/uploads/custom-images/' . $filename);
+    $type = Storage::mimeType('app/uploads/custom-images/' . $filename);
 
     // Debugging statements
     Log::info('File Path: ' . $path);
