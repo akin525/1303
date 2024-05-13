@@ -507,7 +507,7 @@ Route::get('/uploads/custom-images', function ($filename) {
     $response = Response::make($file, 200);
     $response->header("Content-Type", $type);
     return $response;
-})->name('cat');
+})->name('uploads/custom-images');
 Route::get('/cover/{filename}', function ($filename) {
     $path = storage_path('app/cover/' . $filename);
 
