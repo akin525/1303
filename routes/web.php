@@ -518,3 +518,16 @@ Route::get('/uploads/custom-images/{filename}', function ($filename) {
     return $response;
 })->name('uploads.custom-images');
 
+Route::get('/cover/{filename}', function ($filename) {
+    $path = storage_path('app/cover/' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+})->name('cover');
