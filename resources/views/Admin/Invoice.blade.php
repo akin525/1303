@@ -34,7 +34,7 @@
 									<div id="print-section" class="sherah-page-inner sherah-border sherah-default-bg mg-top-25">
 
                                        <div class="sherah-invoice-header">
-                                            <a href="index.html"> <img width="100" class="sherah-logo__main" src="{{asset('13.jpeg')}}" alt="#"></a>
+                                            <a href="#"> <img width="50" class="sherah-logo__main" src="{{asset('13.jpeg')}}" alt="#"></a>
                                             <p class="sherah-invoice-header__id sherah-color1">Order #{{$order->order_id}}</p>
                                        </div>
 

@@ -5,7 +5,7 @@
 					<!-- Logo -->
 					<div class="logo sherah-sidebar-padding">
 						<a href="{{url('/admin-dashboard')}}">
-							<img width="100" class="sherah-logo__main" src="{{asset('13.jpeg')}}" alt="#">
+							<img width="50" class="sherah-logo__main" src="{{asset('13.jpeg')}}" alt="#">
 						</a>
 						<div class="sherah__sicon close-icon d-xl-none">
 							<svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
