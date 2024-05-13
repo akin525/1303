@@ -502,7 +502,7 @@ Route::get('/migrate', function(){
 
 
 Route::get('/uploads/custom-images/{filename}', function ($filename) {
-    $path = Storage::url( $filename);
+    $path = Storage::url('app/public/' . $filename);
 
     if (!File::exists($path)) {
         abort(404);
