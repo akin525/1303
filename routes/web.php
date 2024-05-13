@@ -509,6 +509,7 @@ Route::get('/uploads/custom-images/{filename}', function ($filename) {
 //    }
 
     $file = Storage::get($path);
+    return $file;
     $type = Storage::mimeType($path);
 
     $response = response($file, 200);
