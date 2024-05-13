@@ -485,10 +485,10 @@ Route::group(['middleware' => ['XSS']], function () {
 
 
     Route::get('/uploads/custom-images/{filename}', function ($filename) {
-        $path = public_path($filename);
-        if (!File::exists($path)) {
-            abort(404);
-        }
+        $path = public_path('uploads/custom-images/'.$filename);
+//        if (!File::exists($path)) {
+//            abort(404);
+//        }
         $file = File::get($path);
         $type = File::mimeType($path);
 
