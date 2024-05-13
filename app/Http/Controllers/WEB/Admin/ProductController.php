@@ -42,7 +42,8 @@ class ProductController extends Controller
             $tumb_image_name = Str::slug($request->name).date('-Y-m-d-h-i-s-').rand(999,9999).'.'.$extention;
             $tumb_image_name = 'uploads/custom-images/'.$tumb_image_name;
             $image = Image::make($request->tumb_image);
-            Storage::put('/' . $tumb_image_name, $image->stream());
+//            Storage::put('/' . $tumb_image_name, $image->stream());
+            storage_path("app/public/".$tumb_image_name);
 //            Image::make($request->tumb_image)
 //                ->save(public_path().'/'.$tumb_image_name);
             $product->tumb_image = $tumb_image_name;
@@ -52,7 +53,9 @@ class ProductController extends Controller
             $vedio_tumb_image = Str::slug($request->name).date('-Y-m-d-h-i-s-').rand(999,9999).'.'.$extention;
             $vedio_tumb_image = 'uploads/custom-images/'.$vedio_tumb_image;
             $image = Image::make($request->vedio_tumb_image);
-            Storage::put('/' . $vedio_tumb_image, $image->stream());
+//            Storage::put('/' . $vedio_tumb_image, $image->stream());
+            storage_path("app/public/".$vedio_tumb_image);
+
 //            Image::make($request->vedio_tumb_image)
 //                ->save(public_path().'/'.$vedio_tumb_image);
             $product->vedio_tumb_image = $vedio_tumb_image;
@@ -77,7 +80,9 @@ class ProductController extends Controller
                 $extension = $image->getClientOriginalExtension();
                 $image_name = 'Gallery' . date('Y-m-d-h-i-s') . rand(999, 9999) . '.' . $extension;
                 $image_path = 'uploads/custom-images/' . $image_name;
-                $image->storeAs('uploads/custom-images', $image_name);
+//                $image->storeAs('uploads/custom-images', $image_name);
+                storage_path("app/public/".$image_path);
+
 //                $image->move(public_path('uploads/custom-images'), $image_name);
 //                $image=Storage::put('uploads/custom-images', $image_name);
                 $gallery = new ProductGallery();

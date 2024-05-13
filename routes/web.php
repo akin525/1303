@@ -502,23 +502,18 @@ Route::get('/migrate', function(){
 
 
 Route::get('/uploads/custom-images/{filename}', function ($filename) {
-    $path = 'uploads/custom-images/' . $filename;
+    $path = storage_path('app/public/' . $filename);
 
-    if (!Storage::exists($path)) {
+    if (!File::exists($path)) {
         abort(404);
     }
+    $file = File::get($path);
+    $type = File::mimeType($path);
 
-    $file = Storage::get($path);
-    $type = Storage::mimeType($path);
-
-    // Log file content and MIME type for debugging
-    \Log::info('File Content: ' . $file);
-    \Log::info('MIME Type: ' . $type);
-
-    $response = response($file, 200);
+    $response = Response::make($file, 200);
     $response->header("Content-Type", $type);
-
     return $response;
+
 })->name('uploads.custom-images');
 
 Route::get('/cover/{filename}', function ($filename) {
