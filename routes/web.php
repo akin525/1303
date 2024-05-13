@@ -1,6 +1,7 @@
 
 <?php
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\WEB\Admin\AdminOrderController;
@@ -499,7 +500,7 @@ Route::get('/migrate', function(){
 
 
 Route::get('/uploads/custom-images/{filename}', function ($filename) {
-    $path = public_path().'/'.$filename;
+    $path = public_path('uploads/custom-images/' . $filename);
 
     if (!File::exists($path)) {
         abort(404);
@@ -507,6 +508,11 @@ Route::get('/uploads/custom-images/{filename}', function ($filename) {
 
     $file = File::get($path);
     $type = File::mimeType($path);
+
+    // Debugging statements
+    Log::info('File Path: ' . $path);
+    Log::info('MIME Type: ' . $type);
+    Log::info('File Content: ' . $file);
 
     $response = Response::make($file, 200);
     $response->header("Content-Type", $type);
