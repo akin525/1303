@@ -495,19 +495,22 @@ Route::get('/migrate', function(){
     return redirect()->route('index')->with($notification);
 });
 
-Route::get('/uploads/custom-images', function ($filename) {
-    $path = public_path($filename);
+
+Route::get('/uploads/custom-images/{filename}', function ($filename) {
+    $path = public_path('uploads/custom-images/' . $filename);
 
     if (!File::exists($path)) {
         abort(404);
     }
+
     $file = File::get($path);
     $type = File::mimeType($path);
 
     $response = Response::make($file, 200);
     $response->header("Content-Type", $type);
+
     return $response;
-})->name('uploads/custom-images');
+})->name('uploads.custom-images');
 Route::get('/cover/{filename}', function ($filename) {
     $path = storage_path('app/cover/' . $filename);
 
