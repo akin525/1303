@@ -502,14 +502,13 @@ Route::get('/migrate', function(){
 
 
 Route::get('/uploads/custom-images/{filename}', function ($filename) {
-    $path = 'uploads/custom-images/' . $filename;
+    $path = 'uploads/uploads/custom-images/' . $filename;
 
-//    if (!Storage::exists($path)) {
-//        abort(404);
-//    }
+    if (!Storage::exists($path)) {
+        abort(404);
+    }
 
     $file = Storage::get($path);
-    return $file;
     $type = Storage::mimeType($path);
 
     $response = response($file, 200);
