@@ -511,6 +511,10 @@ Route::get('/uploads/custom-images/{filename}', function ($filename) {
     $file = Storage::get($path);
     $type = Storage::mimeType($path);
 
+    // Log file content and MIME type for debugging
+    \Log::info('File Content: ' . $file);
+    \Log::info('MIME Type: ' . $type);
+
     $response = response($file, 200);
     $response->header("Content-Type", $type);
 
