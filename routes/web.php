@@ -522,7 +522,7 @@ Route::get('/uploads/custom-images/{filename}', function ($filename) {
 })->name('uploads.custom-images');
 
 Route::get('/cover/{filename}', function ($filename) {
-    $path = storage_path('app/cover/' . $filename);
+    $path = storage_path('app/public/cover/' . $filename);
 
     if (!File::exists($path)) {
         abort(404);
