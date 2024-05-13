@@ -504,19 +504,19 @@ Route::get('/migrate', function(){
 Route::get('/uploads/custom-images/{filename}', function ($filename) {
     $path = storage_path('app/uploads/custom-images/' . $filename);
 
-    if (!File::exists($path)) {
+    if (!Storage::exists('uploads/custom-images/' . $filename)) {
         abort(404);
     }
 
-    $file = File::get($path);
-    $type = File::mimeType($path);
+    $file = Storage::get('uploads/custom-images/' . $filename);
+    $type = Storage::mimeType('uploads/custom-images/' . $filename);
 
     // Debugging statements
     Log::info('File Path: ' . $path);
     Log::info('MIME Type: ' . $type);
     Log::info('File Content: ' . $file);
 
-    $response = Response::make($file, 200);
+    $response = response($file, 200);
     $response->header("Content-Type", $type);
 
     return $response;
