@@ -32,9 +32,9 @@
                                                     <div class="sherah-vcard__body">
                                                         <div class="sherah-vcard__img">
                                                             @if($user->image)
-                                                                <img class="user_avatar"  src="{{asset($user->image)}}" alt="img">
+                                                                <img width="100" class="user_avatar"  src="{{asset($user->image)}}" alt="img">
                                                             @else
-                                                                <img src="{{asset($setting->empty_cart)}}" alt="img">
+                                                                <img width="100" src="{{asset($setting->empty_cart)}}" alt="img">
                                                             @endif
                                                         </div>
                                                         <div class="sherah-vcard__content">
