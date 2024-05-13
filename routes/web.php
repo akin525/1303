@@ -512,7 +512,7 @@ Route::get('/uploads/custom-images/{filename}', function ($filename) {
     $type = Storage::mimeType('app/uploads/custom-images/' . $filename);
 
     // Debugging statements
-    Log::info('File Path: ' . $path);
+//    Log::info('File Path: ' . $path);
     Log::info('MIME Type: ' . $type);
     Log::info('File Content: ' . $file);
 
