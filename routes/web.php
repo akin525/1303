@@ -496,7 +496,7 @@ Route::group(['middleware' => ['XSS']], function () {
         $response->header("Content-Type", $type);
         return $response;
 
-    })->name('uploads/custom-images/');
+    })->name('uploads.custom-images');
 
     Route::get('/cover/{filename}', function ($filename) {
         $path = storage_path('app/public/cover/' . $filename);

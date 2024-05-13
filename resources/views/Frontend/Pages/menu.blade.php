@@ -126,7 +126,7 @@
                                             </div>
                                             @endif
                                             <div class="featured-item-img">
-                                                <img src="{{route('uploads/custom-images',$product['tumb_image'])}}" class="w-100"
+                                                <img src="{{route('uploads.custom-images',$product['tumb_image'])}}" class="w-100"
                                                     alt="featured-thumb">
 
                                                 <div class="featured-item-img-overlay">
