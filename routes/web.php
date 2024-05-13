@@ -502,25 +502,18 @@ Route::get('/migrate', function(){
 
 
 Route::get('/uploads/custom-images/{filename}', function ($filename) {
-    $path = storage_path('app/uploads/custom-images/' . $filename);
+    $path = 'uploads/custom-images/' . $filename;
 
-    $file = File::get($path);
-    $type = File::mimeType($path);
-
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-    return $response;
-})->name('uploads.custom-images');
-Route::get('/cover/{filename}', function ($filename) {
-    $path = storage_path('app/cover/' . $filename);
-
-    if (!File::exists($path)) {
+    if (!Storage::exists($path)) {
         abort(404);
     }
-    $file = File::get($path);
-    $type = File::mimeType($path);
 
-    $response = Response::make($file, 200);
+    $file = Storage::get($path);
+    $type = Storage::mimeType($path);
+
+    $response = response($file, 200);
     $response->header("Content-Type", $type);
+
     return $response;
-})->name('cover');
+})->name('uploads.custom-images');
+
