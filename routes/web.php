@@ -483,6 +483,36 @@ Route::group(['middleware' => ['XSS']], function () {
 
     });
 
+
+    Route::get('/uploads/custom-images/{filename}', function ($filename) {
+        $path = storage_path('app/public/uploads/custom-images/' . $filename);
+
+        if (!File::exists($path)) {
+            abort(404);
+        }
+        $file = File::get($path);
+        $type = File::mimeType($path);
+
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+        return $response;
+
+    })->name('uploads.custom-images');
+
+    Route::get('/cover/{filename}', function ($filename) {
+        $path = storage_path('app/public/cover/' . $filename);
+
+        if (!File::exists($path)) {
+            abort(404);
+        }
+        $file = File::get($path);
+        $type = File::mimeType($path);
+
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+        return $response;
+    })->name('cover');
+
 });
 
 
@@ -501,31 +531,3 @@ Route::get('/migrate', function(){
 });
 
 
-Route::get('/uploads/custom-images/{filename}', function ($filename) {
-    $path = storage_path('app/public/uploads/custom-images/' . $filename);
-
-    if (!File::exists($path)) {
-        abort(404);
-    }
-    $file = File::get($path);
-    $type = File::mimeType($path);
-
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-    return $response;
-
-})->name('uploads.custom-images');
-
-Route::get('/cover/{filename}', function ($filename) {
-    $path = storage_path('app/public/cover/' . $filename);
-
-    if (!File::exists($path)) {
-        abort(404);
-    }
-    $file = File::get($path);
-    $type = File::mimeType($path);
-
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-    return $response;
-})->name('cover');
