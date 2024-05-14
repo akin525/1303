@@ -24,7 +24,7 @@
                 <div class="row mb-6 pb-5">
 
                     <div class="col-md-6 col-6">
-                        <a href="#"> <img class="sherah-logo__main" src="{{asset('13.jpeg')}}" alt="#"></a>
+                        <a href="#"> <img width="100" class="sherah-logo__main" src="{{asset('13.jpeg')}}" alt="#"></a>
                     </div>
 
                     <div class="col-md-6 col-6 text-right">
