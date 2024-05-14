@@ -47,8 +47,8 @@
                             <strong>{{html_decode($order->userName->name)}}</strong>
                         </div>
                         <div>Phone: {{html_decode($order->userName->phone)}}</div>
-                        <div>Delivery Area: {{html_decode($order->shippingAddress->DeliveryArea->area_name)}}</div>
-                        <div>Address: {{html_decode($order->userName->address)}}</div>
+                        <div>Delivery Area: {{html_decode($order->shippingAddress->DeliveryArea->area_name ?? null)}}</div>
+                        <div>Address: {{html_decode($order->userName->address ?? null)}}</div>
 
                     </div>
                     @if($order->address_id)
@@ -58,9 +58,9 @@
                                 <strong>{{html_decode($order->shippingAddress->name)}}</strong>
                             </div>
                             <div>Phone: {{html_decode($order->shippingAddress->phone)}}</div>
-                            <div>Delivery Area: {{html_decode($order->shippingAddress->DeliveryArea->area_name)}}</div>
+                            <div>Delivery Area: {{html_decode($order->shippingAddress->DeliveryArea->area_name ?? null)}}</div>
 
-                            <div>Address: {{html_decode($order->shippingAddress->address)}}</div>
+                            <div>Address: {{html_decode($order->shippingAddress->address ?? null)}}</div>
                         </div>
                     @endif
                 </div>
