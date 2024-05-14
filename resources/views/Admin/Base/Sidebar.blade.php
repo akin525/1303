@@ -417,9 +417,9 @@
 									<span class="menu-bar__name">Subscribers</span></span></a></span>
                                     </li>
                                     <!-- ************ Logout ************ -->
-                                    <li><a><span class="menu-bar__text two">
-									<span class="menu-bar__name ">Version : {{$setting->app_version}} </span></span></a>
-                                    </li>
+{{--                                    <li><a><span class="menu-bar__text two">--}}
+{{--									<span class="menu-bar__name ">Version : {{$setting->app_version}} </span></span></a>--}}
+{{--                                    </li>--}}
 
                                 </ul>
                             </div>
