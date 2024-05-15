@@ -12,7 +12,7 @@
 
     <div class="sign-up-from">
         <div class="sign-up-from-item">
-            <form action="{{route('login')}}" method="post">
+            <form action="{{route('login1')}}" method="post">
             @csrf
             <div class="sign-up-from-inner">
                 <label for="exampleFormControlInput1" class="form-label">{{ __('translate.Email') }} </label>
