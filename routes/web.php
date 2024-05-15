@@ -116,7 +116,7 @@ Route::group(['middleware' => ['XSS']], function () {
         // User Login Routes.....
         Route::group(['middleware'=>'guest'],function () {
             Route::get('/login', [UserLoginController::class,'index'])->name('login');
-            Route::post('/login', [UserLoginController::class,'login'])->name('login');
+            Route::post('/login1', [UserLoginController::class,'login'])->name('login1');
             Route::get('/verify/user/email', [UserLoginController::class,'verify_user_email'])->name('verify.user.email');
             Route::get('/register', [UserLoginController::class,'registerView'])->name('register');
             Route::post('/register', [UserLoginController::class,'register'])->name('register');
