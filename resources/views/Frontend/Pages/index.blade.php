@@ -129,125 +129,125 @@
         <!-- .Categories-part-end -->
 
         <!-- Featured &  Newest-part-start -->
-        <section class="featured food-details s-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="featured-head">
-                            <h2>{{$section->featured_titel}}</h2>
-                        </div>
-                    </div>
-                </div>
+{{--        <section class="featured food-details s-padding">--}}
+{{--            <div class="container">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-lg-12">--}}
+{{--                        <div class="featured-head">--}}
+{{--                            <h2>{{$section->featured_titel}}</h2>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="row">
-                    <div class="featured-slick  ">
-                        @foreach ($product as $product)
-                            <div class="featured-item">
-                                <div class="featured-item-img">
-                                    <img src="{{url($product['tumb_image'])}}" class="w-100" alt="featured-thumb">
+{{--                <div class="row">--}}
+{{--                    <div class="featured-slick  ">--}}
+{{--                        @foreach ($product as $product)--}}
+{{--                            <div class="featured-item">--}}
+{{--                                <div class="featured-item-img">--}}
+{{--                                    <img src="{{url($product['tumb_image'])}}" class="w-100" alt="featured-thumb">--}}
 
-                                    <div class="featured-item-img-overlay">
-                                        <div class="featured-item-img-over-text">
-                                            <div class="left-text">
-                                                <a href="{{route('wishlist.add',$product->id)}}">
-                                                    <div class="icon">
-                                                        <span>
-                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M4.31804 6.31804C3.90017 6.7359 3.5687 7.23198 3.34255 7.77795C3.1164 8.32392 3 8.90909 3 9.50004C3 10.091 3.1164 10.6762 3.34255 11.2221C3.5687 11.7681 3.90017 12.2642 4.31804 12.682L12 20.364L19.682 12.682C20.526 11.8381 21.0001 10.6935 21.0001 9.50004C21.0001 8.30656 20.526 7.16196 19.682 6.31804C18.8381 5.47412 17.6935 5.00001 16.5 5.00001C15.3066 5.00001 14.162 5.47412 13.318 6.31804L12 7.63604L10.682 6.31804C10.2642 5.90017 9.7681 5.5687 9.22213 5.34255C8.67616 5.1164 8.09099 5 7.50004 5C6.90909 5 6.32392 5.1164 5.77795 5.34255C5.23198 5.5687 4.7359 5.90017 4.31804 6.31804V6.31804Z"
-                                                                    stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"
-                                                                    stroke-linejoin="round" />
-                                                            </svg>
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            @php
-                                                $discount = $product->price - $product->offer_price;
-                                                $discountPercentage = ($discount / $product->price) * 100;
-                                            @endphp
-                                            @if ($discountPercentage != 100.00)
-                                                <div class="right-text">
-                                                    <h5>{{ number_format($discountPercentage, 2) }}% Off </h5>
-                                                </div>
-                                            @endif
+{{--                                    <div class="featured-item-img-overlay">--}}
+{{--                                        <div class="featured-item-img-over-text">--}}
+{{--                                            <div class="left-text">--}}
+{{--                                                <a href="{{route('wishlist.add',$product->id)}}">--}}
+{{--                                                    <div class="icon">--}}
+{{--                                                        <span>--}}
+{{--                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"--}}
+{{--                                                                xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M4.31804 6.31804C3.90017 6.7359 3.5687 7.23198 3.34255 7.77795C3.1164 8.32392 3 8.90909 3 9.50004C3 10.091 3.1164 10.6762 3.34255 11.2221C3.5687 11.7681 3.90017 12.2642 4.31804 12.682L12 20.364L19.682 12.682C20.526 11.8381 21.0001 10.6935 21.0001 9.50004C21.0001 8.30656 20.526 7.16196 19.682 6.31804C18.8381 5.47412 17.6935 5.00001 16.5 5.00001C15.3066 5.00001 14.162 5.47412 13.318 6.31804L12 7.63604L10.682 6.31804C10.2642 5.90017 9.7681 5.5687 9.22213 5.34255C8.67616 5.1164 8.09099 5 7.50004 5C6.90909 5 6.32392 5.1164 5.77795 5.34255C5.23198 5.5687 4.7359 5.90017 4.31804 6.31804V6.31804Z"--}}
+{{--                                                                    stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"--}}
+{{--                                                                    stroke-linejoin="round" />--}}
+{{--                                                            </svg>--}}
+{{--                                                        </span>--}}
+{{--                                                    </div>--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                            @php--}}
+{{--                                                $discount = $product->price - $product->offer_price;--}}
+{{--                                                $discountPercentage = ($discount / $product->price) * 100;--}}
+{{--                                            @endphp--}}
+{{--                                            @if ($discountPercentage != 100.00)--}}
+{{--                                                <div class="right-text">--}}
+{{--                                                    <h5>{{ number_format($discountPercentage, 2) }}% Off </h5>--}}
+{{--                                                </div>--}}
+{{--                                            @endif--}}
 
-                                        </div>
-                                    </div>
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                </div>
+{{--                                </div>--}}
 
-                                <div class="featured-item-text">
-                                    <div class="text-item">
-                                        <div class="left">
-                                            <h3>{{$setting->currency_icon}}{{$product->price}}</h3>
-                                        </div>
-                                        <div class="right">
-                                        </div>
-                                    </div>
+{{--                                <div class="featured-item-text">--}}
+{{--                                    <div class="text-item">--}}
+{{--                                        <div class="left">--}}
+{{--                                            <h3>{{$setting->currency_icon}}{{$product->price}}</h3>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="right">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                    <div class="text-item-center">
-                                        <h3><a class="line-clamp-1" title="{{$product->name}}" href="{{route('menu-detils',$product->slug)}}">{{$product->name}}</a></h3>
-                                    </div>
+{{--                                    <div class="text-item-center">--}}
+{{--                                        <h3><a class="line-clamp-1" title="{{$product->name}}" href="{{route('menu-detils',$product->slug)}}">{{$product->name}}</a></h3>--}}
+{{--                                    </div>--}}
 
-                                    <div class="text-item-center-item-box">
-                                        @foreach(json_decode($product->specifaction, true) as $name)
-                                            <div class="text-item-center-item">
-                                                <div class="icon">
-                                                    <span>
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M8 12L10.5347 14.2812C10.9662 14.6696 11.6366 14.6101 11.993 14.1519L16 9M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                                                                stroke="#FE724C" stroke-width="1.5" stroke-linecap="round"
-                                                                stroke-linejoin="round" />
-                                                        </svg>
-                                                    </span>
-                                                </div>
+{{--                                    <div class="text-item-center-item-box">--}}
+{{--                                        @foreach(json_decode($product->specifaction, true) as $name)--}}
+{{--                                            <div class="text-item-center-item">--}}
+{{--                                                <div class="icon">--}}
+{{--                                                    <span>--}}
+{{--                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"--}}
+{{--                                                            xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                                            <path--}}
+{{--                                                                d="M8 12L10.5347 14.2812C10.9662 14.6696 11.6366 14.6101 11.993 14.1519L16 9M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"--}}
+{{--                                                                stroke="#FE724C" stroke-width="1.5" stroke-linecap="round"--}}
+{{--                                                                stroke-linejoin="round" />--}}
+{{--                                                        </svg>--}}
+{{--                                                    </span>--}}
+{{--                                                </div>--}}
 
-                                                <div class="text">
-                                                    <h5>{{$name}}</h5>
-                                                </div>
-                                            </div>
-                                        @endforeach
+{{--                                                <div class="text">--}}
+{{--                                                    <h5>{{$name}}</h5>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        @endforeach--}}
 
-                                        <div class="featured-item-btn">
-                                            <button type="button" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal{{ $product['id'] }}" class="main-btn-three">
-                                                <span>
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M6 4H18C20.2091 4 22 5.79086 22 8V13C22 15.2091 20.2091 17 18 17H10C7.79086 17 6 15.2091 6 13V4ZM6 4C6 2.89543 5.10457 2 4 2H2"
-                                                            stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                        <path
-                                                            d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z"
-                                                            stroke-width="1.5" />
-                                                        <path
-                                                            d="M20 20.5C20 21.3284 19.3284 22 18.5 22C17.6716 22 17 21.3284 17 20.5C17 19.6716 17.6716 19 18.5 19C19.3284 19 20 19.6716 20 20.5Z"
-                                                            stroke-width="1.5" />
-                                                        <path d="M14 8L14 13" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                        <path d="M16.5 10.5L11.5 10.5" stroke-width="1.5"
-                                                            stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </span>
-                                                {{ __('translate.Add to cart')}}
-                                            </button>
+{{--                                        <div class="featured-item-btn">--}}
+{{--                                            <button type="button" data-bs-toggle="modal"--}}
+{{--                                                data-bs-target="#exampleModal{{ $product['id'] }}" class="main-btn-three">--}}
+{{--                                                <span>--}}
+{{--                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"--}}
+{{--                                                        xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                                        <path--}}
+{{--                                                            d="M6 4H18C20.2091 4 22 5.79086 22 8V13C22 15.2091 20.2091 17 18 17H10C7.79086 17 6 15.2091 6 13V4ZM6 4C6 2.89543 5.10457 2 4 2H2"--}}
+{{--                                                            stroke-width="1.5" stroke-linecap="round"--}}
+{{--                                                            stroke-linejoin="round" />--}}
+{{--                                                        <path--}}
+{{--                                                            d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z"--}}
+{{--                                                            stroke-width="1.5" />--}}
+{{--                                                        <path--}}
+{{--                                                            d="M20 20.5C20 21.3284 19.3284 22 18.5 22C17.6716 22 17 21.3284 17 20.5C17 19.6716 17.6716 19 18.5 19C19.3284 19 20 19.6716 20 20.5Z"--}}
+{{--                                                            stroke-width="1.5" />--}}
+{{--                                                        <path d="M14 8L14 13" stroke-width="1.5" stroke-linecap="round"--}}
+{{--                                                            stroke-linejoin="round" />--}}
+{{--                                                        <path d="M16.5 10.5L11.5 10.5" stroke-width="1.5"--}}
+{{--                                                            stroke-linecap="round" stroke-linejoin="round" />--}}
+{{--                                                    </svg>--}}
+{{--                                                </span>--}}
+{{--                                                {{ __('translate.Add to cart')}}--}}
+{{--                                            </button>--}}
 
-                                        </div>
-                                    </div>
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </div>
-                        @endforeach
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
 
-                    </div>
-                </div>
-            </div>
-        </section>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
         <!-- Featured &  Newest-part-end -->
 
         <!-- Promotions part-start -->
@@ -768,51 +768,51 @@
         <!-- Customer part-end -->
 
         <!-- Our Latest news part-start -->
-        <section class="our-latest-news s-padding">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="news-taitel">
-                            <h2>{{$section->news_titel}}</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="news-taitel-btn">
-                            <a href="{{route('blog')}}" class="main-btn-four">{{ __('translate.See More') }}</a>
-                        </div>
-                    </div>
-                </div>
+{{--        <section class="our-latest-news s-padding">--}}
+{{--            <div class="container">--}}
+{{--                <div class="row align-items-center">--}}
+{{--                    <div class="col-lg-6">--}}
+{{--                        <div class="news-taitel">--}}
+{{--                            <h2>{{$section->news_titel}}</h2>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-lg-6">--}}
+{{--                        <div class="news-taitel-btn">--}}
+{{--                            <a href="{{route('blog')}}" class="main-btn-four">{{ __('translate.See More') }}</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="row news-slick ">
-                    @foreach ($blogs as $blog)
-                        <div class="col-lg-4 pd-15px">
-                            <div class="news-item">
-                                <div class="news-img">
-                                    <img src="{{asset($blog['image'])}}" class="w-100" alt="img">
-                                    <div class="news-img-overlay">
-                                        <div class="news-img-overlay-text">
-                                            <h3><a href="{{route('blog-detils',$blog->slug)}}">{{$blog->title}}</a></h3>
-                                        </div>
+{{--                <div class="row news-slick ">--}}
+{{--                    @foreach ($blogs as $blog)--}}
+{{--                        <div class="col-lg-4 pd-15px">--}}
+{{--                            <div class="news-item">--}}
+{{--                                <div class="news-img">--}}
+{{--                                    <img src="{{asset($blog['image'])}}" class="w-100" alt="img">--}}
+{{--                                    <div class="news-img-overlay">--}}
+{{--                                        <div class="news-img-overlay-text">--}}
+{{--                                            <h3><a href="{{route('blog-detils',$blog->slug)}}">{{$blog->title}}</a></h3>--}}
+{{--                                        </div>--}}
 
-                                        <div class="news-img-overlay-btn">
-                                            <a href="{{route('blog-detils',$blog->slug)}}">{{ __('translate.Read More') }}
-                                                <span>
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M0 8H15M15 8L8.5 1.5M15 8L8.5 14.5" stroke-width="2"
-                                                            stroke-linejoin="round" />
-                                                    </svg>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
+{{--                                        <div class="news-img-overlay-btn">--}}
+{{--                                            <a href="{{route('blog-detils',$blog->slug)}}">{{ __('translate.Read More') }}--}}
+{{--                                                <span>--}}
+{{--                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"--}}
+{{--                                                        xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                                        <path d="M0 8H15M15 8L8.5 1.5M15 8L8.5 14.5" stroke-width="2"--}}
+{{--                                                            stroke-linejoin="round" />--}}
+{{--                                                    </svg>--}}
+{{--                                                </span>--}}
+{{--                                            </a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
         <!-- Our Latest news part-end -->
 
         <!-- App part-start -->
