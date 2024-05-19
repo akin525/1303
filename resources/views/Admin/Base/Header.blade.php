@@ -3,7 +3,7 @@
 	<head>
 		<!-- Meta Tags -->
 		<meta charset="utf-8">
-		<meta name="csrf-token" content="{{ csrf_token() }}">
+{{--		<meta name="csrf-token" content="{{ csrf_token() }}">--}}
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="keywords" content="Site keywords here">
 		<meta name="description" content="#">
